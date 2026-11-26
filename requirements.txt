@@ -1,0 +1,13 @@
+# GAMEBOX PC - Dipendenze Python
+# Installazione: pip install -r requirements.txt
+
+PySide6>=6.6.0        # Interfaccia grafica
+requests>=2.31.0       # Download file con progresso e verifica
+pygame>=2.5.0          # Supporto controller/joystick (opzionale ma consigliato)
+pyinstaller>=6.3.0     # Per generare GAMEBOX.exe
+
+# Dipendenze opzionali (NON obbligatorie, attivano funzioni extra se presenti):
+# pywin32              # Su Windows, abilita la creazione di collegamenti .lnk reali
+#                       # Se non installato, GAMEBOX PC crea collegamenti .bat equivalenti
+
+# Opzionale: installa con `pip install pygame` per rilevare i controller.\n
