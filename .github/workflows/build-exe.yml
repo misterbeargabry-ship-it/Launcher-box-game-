@@ -1,0 +1,33 @@
+name: GAMEBOX PC Builder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Download GAMEBOX
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Compile GAMEBOX
+        run: |
+          pyinstaller --noconfirm --clean --onefile --windowed --name GAMEBOX --collect-all PySide6 main.py
+
+      - name: Save EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: GAMEBOX-WINDOWS
+          path: dist/GAMEBOX.exe
+          
